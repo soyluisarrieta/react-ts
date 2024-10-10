@@ -23,6 +23,20 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+
+      // REGLAS PERSONALIZADAS
+      'semi': ['error', 'never'],
+      'indent': ['error', 2],
+      'quotes': ['error', 'single'],
+      'space-before-function-paren': ['error', 'always'],
+      'no-unused-vars': 'error',
+      'eqeqeq': ['error', 'always'],
+      'no-var': 'error',
+      'comma-dangle': ['error', 'never'],
+      'no-undef': 'error',
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'no-multiple-empty-lines': ['error', { max: 1 }],
+      'eol-last': ['warn', 'always']
     },
   },
 )
