@@ -7,6 +7,7 @@ Este kit starter proporciona una base sólida para desarrollar aplicaciones mode
 - [Tabla de Contenidos](#tabla-de-contenidos)
 - [Requisitos Previos](#requisitos-previos)
 - [Tecnologías](#tecnologías)
+- [Caracteristicas](#caracteristicas)
 
 ## Requisitos Previos
 
@@ -35,3 +36,54 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 | 14 | [⏳nProgress](https://ricostacruz.com/nprogress/) | Biblioteca para loader o barra de progreso delgadas como YouTube. |
 | 15 | [🔔Sonner](https://sonner.emilkowal.ski/) | Biblioteca para generar toast de notificaciones. |
 | 16 | [📆MomentJS](https://momentjs.com/) | Analizar, validar, manipular, formatear y mostrar fechas y horas en javascript. |
+
+## Caracteristicas
+
+- ### General
+
+  - [ ] Soporte para dispositivos móviles.
+  - [ ] Navegación intuitiva y menús desplegables.
+  - [ ] Validación de formularios en tiempo real.
+  - [ ] Notificaciones y alertas por correo y/o dentro del sistema.
+  - [ ] Modo oscuro.
+  - [ ] Temas de colores.
+  - [ ] Animaciones y transiciones suaves.
+  - [ ] Acceso rápido a configuraciones.
+  - [ ] Estadísticas gráficas y reportes.
+  - [ ] Integración con Google Analytics.
+  - [ ] Filtros avanzados de búsqueda
+  - [ ] Exportación de datos a formato PDF.
+  - [ ] Guardado automático de formularios en proceso.
+  - [ ] Funcionalidades arrastrar y soltar.
+  - [ ] Balanceo de carga en cuanto a rendimiento.
+  - [ ] Compatibilidad multi-idioma.
+
+- ### Sistema de autenticación
+
+  - [ ] Formularios de inicio de sesión y registro.
+  - [ ] Cerrar sesión.
+  - [ ] Encriptación de contraseña
+  - [ ] Políticas de contraseña segura.
+  - [ ] Cambiar contraseña.
+  - [ ] Recuperación contraseña.
+  - [ ] Recordar usuario.
+  - [ ] Integración con Gmail.
+  - [ ] Gestión de roles y permisos.
+  - [ ] Captchas para prevenir bots.
+  - [ ] Bloqueo de cuenta después de múltiples intentos fallidos.
+  - [ ] Notificaciones de inicio de sesión sospechosas.
+  - [ ] Administración de sesiones activas.
+  - [ ] Registro del último acceso.
+  - [ ] Control de acceso basado en IP.
+  - [ ] Email mágico para recuperación de contraseña.
+
+- ### Gestión de usuarios
+
+  - [ ] Datos de perfil de usuario editable.
+  - [ ] Mostrar todos.
+  - [ ] Mostrar detalles por id.
+  - [ ] Crear nuevo.
+  - [ ] Editar información.
+  - [ ] Desactivar usuario.
+  - [ ] Eliminar usuario.
+  - [ ] Historial de actividad.
