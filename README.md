@@ -6,6 +6,7 @@ Este kit starter proporciona una base sólida para desarrollar aplicaciones mode
 
 - [Tabla de Contenidos](#tabla-de-contenidos)
 - [Requisitos Previos](#requisitos-previos)
+- [Empezando](#empezando)
 - [Tecnologías](#tecnologías)
 - [Caracteristicas](#caracteristicas)
 
@@ -15,6 +16,33 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
+
+## Empezando
+
+1. Clona este repositorio.
+2. Accede al repositorio:
+
+    ```bash
+      cd nameApp
+    ```
+
+3. Genera las variables de entorno:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Instala las dependencias:
+
+    ```bash
+    npm install
+    ```
+
+5. Ejecutar la aplicación:
+
+    ```bash
+    npm run dev
+    ```
 
 ## Tecnologías
 
