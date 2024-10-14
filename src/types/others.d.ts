@@ -1,8 +1,8 @@
 import React from 'react'
 
-interface ComponentProps {
+export interface ComponentProps {
   children: React.ReactNode
   className?: string
 }
 
-type Evt = React.FormEvent<HTMLFormElement>
+export type Evt = React.FormEvent<HTMLFormElement>

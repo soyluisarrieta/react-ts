@@ -1,9 +1,9 @@
-interface Credentials {
+export interface Credentials {
   email: string
   password: string
 }
 
-interface User {
+export interface User {
   name: string
   lastName: string
   fullName: string
@@ -15,7 +15,7 @@ interface User {
   avatar?: string
 }
 
-interface ProfileAuth extends User {
+export interface ProfileAuth extends User {
   id: string
   email: string
   lastActivity?: string
@@ -24,6 +24,6 @@ interface ProfileAuth extends User {
   active: boolean
 }
 
-interface RegisterForm extends User, Credentials {
+export interface RegisterForm extends User, Credentials {
   passwordConfirmation: string
 }

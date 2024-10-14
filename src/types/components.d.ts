@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-interface ComponentProps {
+export interface ComponentProps {
   children: ReactNode
   className?: string
 }
