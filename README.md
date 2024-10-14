@@ -51,7 +51,7 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 ### Funcionalidades
 
-- ### Generales
+- #### Generales
 
   - [ ] Soporte para dispositivos móviles.
   - [ ] Navegación intuitiva y menús desplegables.
@@ -70,7 +70,7 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
   - [ ] Balanceo de carga en cuanto a rendimiento.
   - [ ] Compatibilidad multi-idioma.
 
-- ### Sistema de autenticación
+- #### Sistema de autenticación
 
   - [ ] Formularios de inicio de sesión y registro.
   - [ ] Cerrar sesión.
@@ -89,7 +89,7 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
   - [ ] Control de acceso basado en IP.
   - [ ] Email mágico para recuperación de contraseña.
 
-- ### Gestión de usuarios
+- #### Gestión de usuarios
 
   - [ ] Datos de perfil de usuario editable.
   - [ ] Mostrar todos.
