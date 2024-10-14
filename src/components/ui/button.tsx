@@ -47,6 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(
       buttonVariants({ variant, size }),
       variant === 'link' && href && 'p-0 inline',
+      'relative group/btn',
       className
     )
 
@@ -54,6 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return (
         <Link className={classes} to={href}>
           {props.children}
+          <BottomGradient />
         </Link>
       )
     }
@@ -61,13 +63,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button'
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }), 'relative group/btn')}
         ref={ref}
         {...props}
-      />
+      >
+        {props.children}
+        <BottomGradient />
+      </Comp>
     )
   }
 )
 Button.displayName = 'Button'
+
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-primary to-transparent" />
+    </>
+  )
+}
 
 export { Button, buttonVariants }
