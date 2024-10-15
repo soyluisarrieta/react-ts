@@ -26,7 +26,7 @@ export default function App () {
       <Route path='/mi-cuenta' nest>
         <Switch>
           <Route path='/' component={Account} />
-          <Route path='/cambiar-clave' component={PasswordRecovery} />
+          <Route path='/recuperar-clave' component={PasswordRecovery} />
           <Route>404, Parece que estás perdido.</Route>
         </Switch>
       </Route>
