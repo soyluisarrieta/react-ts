@@ -6,7 +6,6 @@ export interface Credentials {
 export interface User {
   name: string
   lastName: string
-  fullName: string
   birthdate?: string
   gender?: 'male' | 'female' | 'other'
   genderLetter?: 'o' | 'a' | '@'
@@ -17,6 +16,7 @@ export interface User {
 
 export interface ProfileAuth extends User {
   id: string
+  fullName: string
   email: string
   lastActivity?: string
   createdAt: string
