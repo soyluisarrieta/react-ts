@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'wouter'
+import { Route, Switch, Redirect } from 'wouter'
 
 export interface RouteConfig {
   path: string;
@@ -8,21 +8,38 @@ export interface RouteConfig {
 }
 
 export interface RouterProps {
-  routes: RouteConfig[];
+  publics: RouteConfig[];
+  privates: RouteConfig[];
+  guest: RouteConfig[];
 }
 
 // Generador de rutas
-export default function Router (routes: RouteConfig[]) {
+export default function Router ({ publics, privates, guest }: RouterProps, isAuthed: boolean) {
+  return (
+    <Switch>
+      {generateRoutes(publics, !isAuthed, '/')}
+      {generateRoutes(privates, isAuthed, '/ingresar')}
+      {generateRoutes(guest)}
+      <Route component={NotFound} />
+    </Switch>
+  )
+}
+
+const generateRoutes = (routes: RouteConfig[], isAuthed?: null | boolean, redirectTo?: string) => {
   return routes.map(({ path, component: Component, children }: RouteConfig, index: number) => (
     <Route key={index} path={path} nest={!!children}>
-      {children ? (
-        <Switch>
-          <Route path='/'><Component /></Route>
-          {Router(children)}
-          <Route component={NotFound} />
-        </Switch>
+      {isAuthed === null || isAuthed ? (
+        children ? (
+          <Switch>
+            <Route path='/'><Component /></Route>
+            {generateRoutes(children)}
+            <Route component={NotFound} />
+          </Switch>
+        ) : (
+          <Component />
+        )
       ) : (
-        <Component />
+        <Redirect to={redirectTo as string} />
       )}
     </Route>
   ))

@@ -5,9 +5,9 @@ import UserForm from '@/components/Users/UserForm'
 import UsersList from '@/components/Users/UsersList'
 
 export default [
-  { 
-    path: '/', component: Home },
+  { path: '/', component: Home },
   { path: '/mi-cuenta', component: Account },
+  
   {
     path: '/usuarios',
     component: UsersList,
