@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 
-interface IAuthVerified {
+interface IAuthStore {
   isAuthenticated: null | boolean
   setIsAuthenticated: (isAuthenticated: boolean) => void
 }
 
-export const useAuthVerified = create<IAuthVerified>((set) => ({
-  isAuthenticated: null,
+export const useAuthStore = create<IAuthStore>((set) => ({
+  isAuthenticated: false,
   setIsAuthenticated: (isAuthenticated) => {
     set(() => ({ isAuthenticated: isAuthenticated }))
   }
