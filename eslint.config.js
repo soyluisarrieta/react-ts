@@ -29,7 +29,7 @@ export default tseslint.config(
       'indent': ['error', 2],
       'quotes': ['error', 'single'],
       'space-before-function-paren': ['error', 'always'],
-      'no-unused-vars': 'error',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
       'eqeqeq': ['error', 'always'],
       'no-var': 'error',
       'comma-dangle': ['error', 'never'],
@@ -38,5 +38,14 @@ export default tseslint.config(
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'eol-last': ['warn', 'always']
     },
-  },
+    overrides: [
+      {
+        files: ['*.ts', '*.tsx'],
+        rules: {
+          '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+          'no-unused-vars': 'off'
+        }
+      }
+    ]
+  }
 )
