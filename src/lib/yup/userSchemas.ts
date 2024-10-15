@@ -81,7 +81,6 @@ export const loginSchema = yup.object({
 export const registerSchema = yup.object({
   name,
   lastName,
-  gender,
   email,
   password,
   passwordConfirmation
