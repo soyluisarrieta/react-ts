@@ -1,5 +1,11 @@
-import PasswordRecovery from '@/components/Auth/PasswordRecovery'
+import Login from '@/components/Auth/Login'
+import Signup from '@/components/Auth/Signup'
+import GuestLayout from '@/layouts/GuestLayout'
 
-export default [
-  { path: '/recuperar-clave', component: PasswordRecovery }
-]
+export default {
+  layout: GuestLayout,
+  routes: [
+    { path: '/ingresar', component: Login },
+    { path: '/registrarse', component: Signup }
+  ]
+}

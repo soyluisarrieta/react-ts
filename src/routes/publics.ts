@@ -1,7 +1,9 @@
-import Login from '@/components/Auth/Login'
-import Signup from '@/components/Auth/Signup'
+import PasswordRecovery from '@/components/Auth/PasswordRecovery'
+import PublicLayout from '@/layouts/PublicLayout'
 
-export default [
-  { path: '/ingresar', component: Login },
-  { path: '/registrarse', component: Signup }
-]
+export default {
+  layout: PublicLayout,
+  routes: [
+    { path: '/recuperar-clave', component: PasswordRecovery }
+  ]
+}

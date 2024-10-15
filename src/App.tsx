@@ -7,8 +7,6 @@ import { useEffect } from 'react'
 import { Route, Switch } from 'wouter'
 
 export default function App () {
-  const isAuthed = false
-  
   useEffect(() => {
     nProgress.start()
     const timer = setTimeout(() => nProgress.done(), 500)
@@ -17,7 +15,7 @@ export default function App () {
 
   return (
     <Switch>
-      {Router({publics, privates, guest}, isAuthed)}
+      {Router([privates, publics, guest])}
 
       {/* Ruta 404 - Página no encontrada */}
       <Route>404 - No encontrada</Route>

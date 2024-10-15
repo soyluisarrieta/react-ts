@@ -1,51 +1,46 @@
-import React from 'react'
-import { Route, Switch, Redirect } from 'wouter'
+import { RouteConfig, RoutesProps } from '@/types/router';
+import { Route, Switch } from 'wouter';
 
-export interface RouteConfig {
-  path: string;
-  component: React.ComponentType;
-  children?: RouteConfig[];
-}
-
-export interface RouterProps {
-  publics: RouteConfig[];
-  privates: RouteConfig[];
-  guest: RouteConfig[];
-}
-
-// Generador de rutas
-export default function Router ({ publics, privates, guest }: RouterProps, isAuthed: boolean) {
+const renderRoute = (route: RouteConfig, layout: RoutesProps['layout'], index: number) => {
+  const { path, component: Component, children } = route;
+  const Layout = layout
   return (
-    <Switch>
-      {generateRoutes(publics, !isAuthed, '/')}
-      {generateRoutes(privates, isAuthed, '/ingresar')}
-      {generateRoutes(guest)}
-      <Route component={NotFound} />
-    </Switch>
-  )
-}
-
-const generateRoutes = (routes: RouteConfig[], isAuthed?: null | boolean, redirectTo?: string) => {
-  return routes.map(({ path, component: Component, children }: RouteConfig, index: number) => (
     <Route key={index} path={path} nest={!!children}>
-      {isAuthed === null || isAuthed ? (
-        children ? (
-          <Switch>
-            <Route path='/'><Component /></Route>
-            {generateRoutes(children)}
-            <Route component={NotFound} />
-          </Switch>
-        ) : (
-          <Component />
-        )
+      {children ? (
+        <Switch>
+          <Route path={path}>
+            <Layout>
+              <Component />
+            </Layout>
+          </Route>
+          {children.map((childRoute, idx) => (
+            <Route key={`${index}-${idx}`} path={`${path}${childRoute.path}`}>
+              <Layout>
+                <childRoute.component />
+              </Layout>
+            </Route>
+          ))}
+          <Route component={NotFound} />
+        </Switch>
       ) : (
-        <Redirect to={redirectTo as string} />
+        <Layout>
+          <Component />
+        </Layout>
       )}
     </Route>
-  ))
+  );
+};
+
+
+export default function Router (routeSets: RoutesProps[]) {
+  return (
+    <>
+      {routeSets.map((set) => set.routes.map((route, i) => renderRoute(route, set.layout, i)))}
+    </>
+  );
 }
 
 // Página 404
-function NotFound () {
-  return <div>404, Página no encontrada.</div>
+function NotFound() {
+  return <div>404, Página no encontrada.</div>;
 }
