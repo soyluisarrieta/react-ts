@@ -13,7 +13,7 @@ export default function GuestLayout ({ children }: ComponentProps) {
     return <Redirect to='/' />
   }
   return (
-    <div className='w-full min-h-screen bg-amber-100'>
+    <div className='w-full min-h-screen'>
       {children}
     </div>
   )

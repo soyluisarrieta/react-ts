@@ -14,7 +14,7 @@ export default function PrivateLayout ({ children }: ComponentProps) {
   }
 
   return (
-    <div className='w-full min-h-screen bg-indigo-100'>
+    <div className='w-full min-h-screen'>
       {children}
     </div>
   )
