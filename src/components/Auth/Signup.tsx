@@ -4,11 +4,11 @@ import { Input } from '@/components/ui/input'
 import Icon from '@/components/Icons'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { type RegisterForm } from '@/types/auth'
+import { type SignupForm } from '@/types/auth'
 import { registerSchema } from '@/lib/yup/userSchemas'
 
 export default function Signup () {
-  const form = useForm<RegisterForm>({
+  const form = useForm<SignupForm>({
     resolver: yupResolver(registerSchema),
     reValidateMode: 'onSubmit',
     defaultValues: {
@@ -22,11 +22,11 @@ export default function Signup () {
 
   const { control, handleSubmit, clearErrors } = form
 
-  const onSubmit = (data: RegisterForm) => {
+  const onSubmit = (data: SignupForm) => {
     console.log('Form submitted', data)
   }
 
-  const handleChange = (name: keyof RegisterForm) => () => {
+  const handleChange = (name: keyof SignupForm) => () => {
     clearErrors(name)
   }
 

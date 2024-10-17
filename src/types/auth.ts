@@ -24,6 +24,6 @@ export interface ProfileAuth extends User {
   active: boolean
 }
 
-export interface RegisterForm extends User, Credentials {
+export interface SignupForm extends User, Credentials {
   passwordConfirmation: string
 }
