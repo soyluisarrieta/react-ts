@@ -1,3 +1,4 @@
+import NotFound from '@/components/Errors/NotFound';
 import { RouteConfig, RoutesProps } from '@/types/router';
 import { Route, Switch } from 'wouter';
 
@@ -38,9 +39,4 @@ export default function Router (routeSets: RoutesProps[]) {
       {routeSets.map((set) => set.routes.map((route, i) => renderRoute(route, set.layout, i)))}
     </>
   );
-}
-
-// Página 404
-function NotFound() {
-  return <div>404, Página no encontrada.</div>;
 }

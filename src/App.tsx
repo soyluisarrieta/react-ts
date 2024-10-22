@@ -1,3 +1,4 @@
+import NotFound from '@/components/Errors/NotFound'
 import guest from '@/routes/guest'
 import privates from '@/routes/privates'
 import publics from '@/routes/publics'
@@ -18,7 +19,7 @@ export default function App () {
       {Router([privates, publics, guest])}
 
       {/* Ruta 404 - Página no encontrada */}
-      <Route>404 - No encontrada</Route>
+      <Route component={NotFound} />
     </Switch>
   )
 }
