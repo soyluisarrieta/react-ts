@@ -45,6 +45,32 @@ function useSidebar() {
   return context
 }
 
+// Helper function to set a cookie
+function setCookie(name: string, value: string, maxAge: number) {
+  document.cookie = `${name}=${value}; path=/; max-age=${maxAge}`
+}
+
+// Helper function to get a cookie
+function getCookie(name: string) {
+  const cookies = document.cookie.split(';')
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=')
+    if (cookieName === name) {
+      return cookieValue
+    }
+  }
+  return undefined
+}
+
+// Helper function to get the initial sidebar state from the cookie
+function getInitialSidebarState(defaultOpen: boolean) {
+  const cookieValue = getCookie(SIDEBAR_COOKIE_NAME)
+  if (cookieValue !== undefined) {
+    return cookieValue === "true"
+  }
+  return defaultOpen
+}
+
 const SidebarProvider = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
@@ -66,24 +92,28 @@ const SidebarProvider = React.forwardRef<
     ref
   ) => {
     const isMobile = useMobile()
+    
+    // Use the initial value from the cookies
+    const initialOpenState = getInitialSidebarState(defaultOpen)
+
     const [openMobile, setOpenMobile] = React.useState(false)
 
     // This is the internal state of the sidebar.
     // We use openProp and setOpenProp for control from outside the component.
-    const [_open, _setOpen] = React.useState(defaultOpen)
+    const [_open, _setOpen] = React.useState(initialOpenState)
     const open = openProp ?? _open
+    
     const setOpen = React.useCallback(
       (value: boolean | ((value: boolean) => boolean)) => {
+        const newValue = typeof value === "function" ? value(open) : value
         if (setOpenProp) {
-          return setOpenProp?.(
-            typeof value === "function" ? value(open) : value
-          )
+          setOpenProp(newValue)
+        } else {
+          _setOpen(newValue)
         }
-
-        _setOpen(value)
-
+  
         // This sets the cookie to keep the sidebar state.
-        document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
+        setCookie(SIDEBAR_COOKIE_NAME, `${newValue}`, SIDEBAR_COOKIE_MAX_AGE)
       },
       [setOpenProp, open]
     )
