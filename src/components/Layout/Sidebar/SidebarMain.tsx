@@ -5,7 +5,7 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
-  HelpCircleIcon,
+  LifeBuoyIcon,
   Map,
   PieChart,
   Settings2,
@@ -168,7 +168,7 @@ export function SidebarMain({ ...props }: React.ComponentProps<typeof Sidebar>) 
         <div className="space-y-1">
           <Link to="/Ayuda" asChild>
             <SidebarMenuButton tooltip='Ayuda'>
-              <HelpCircleIcon />
+              <LifeBuoyIcon />
               <span>Ayuda</span>
             </SidebarMenuButton>
           </Link>
