@@ -18,6 +18,7 @@ import {
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Fragment } from "react/jsx-runtime"
 import { Link } from "wouter"
+import { useMobile } from "@/hooks/useMobile"
 
 export function SidebarNavMain({
   items,
@@ -33,13 +34,14 @@ export function SidebarNavMain({
   }[]
 }) {
   const { open } = useSidebar()
+  const isMobile = useMobile()
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Fragment key={item.title}>
-            {open ? (
+            {isMobile || open ? (
               <Collapsible asChild className="group/collapsible">
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
