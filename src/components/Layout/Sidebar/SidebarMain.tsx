@@ -5,9 +5,11 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
+  HelpCircleIcon,
   Map,
   PieChart,
   Settings2,
+  SettingsIcon,
   SquareTerminal,
 } from "lucide-react"
 
@@ -19,8 +21,11 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenuButton,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { Link } from "wouter"
+import { Separator } from "@/components/ui/separator"
 
 const data = {
   user: {
@@ -160,6 +165,21 @@ export function SidebarMain({ ...props }: React.ComponentProps<typeof Sidebar>) 
         <SidebarNavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
+        <div className="space-y-1">
+          <Link to="/Ayuda" asChild>
+            <SidebarMenuButton tooltip='Ayuda'>
+              <HelpCircleIcon />
+              <span>Ayuda</span>
+            </SidebarMenuButton>
+          </Link>
+          <Link to="/ajustes" asChild>
+            <SidebarMenuButton tooltip='Ajustes'>
+              <SettingsIcon />
+              <span>Ajustes</span>
+            </SidebarMenuButton>
+          </Link>
+        </div>
+        <Separator />
         <SidebarNavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
